@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAN LYHAK | Ultra Premium</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Orbitron', sans-serif;
+}
+
+body{
+    background:black;
+    overflow:hidden;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#00ffff;
+}
+
+/* 🌌 Galaxy Background */
+.stars{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:url("https://i.imgur.com/YKY28eT.png");
+    animation:moveStars 200s linear infinite;
+    z-index:-3;
+}
+@keyframes moveStars{
+    from{background-position:0 0;}
+    to{background-position:-10000px 5000px;}
+}
+
+/* ❄ Snow */
+.snow{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:url('https://i.imgur.com/T0mBFg2.png');
+    animation:snow 10s linear infinite;
+    z-index:-2;
+    opacity:0.6;
+}
+@keyframes snow{
+    0%{background-position:0 -1000px;}
+    100%{background-position:0 1000px;}
+}
+
+/* 🧊 Hacker Card */
+.card{
+    background:rgba(0,0,0,0.65);
+    border:1px solid #00ffff;
+    padding:40px;
+    width:400px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 0 40px #00ffff;
+    backdrop-filter:blur(10px);
+    transition:0.6s;
+    transform-style:preserve-3d;
+}
+
+.card:hover{
+    transform:rotateY(12deg) rotateX(12deg) scale(1.05);
+    box-shadow:0 0 80px #00ffff;
+}
+
+/* Profile Image */
+.profile{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid #00ffff;
+    margin-bottom:20px;
+    box-shadow:0 0 25px #00ffff;
+}
+
+/* Glitch */
+.glitch{
+    font-size:26px;
+    position:relative;
+}
+.glitch::before,
+.glitch::after{
+    content:attr(data-text);
+    position:absolute;
+    left:0;
+    width:100%;
+}
+.glitch::before{
+    left:2px;
+    text-shadow:-2px 0 red;
+}
+.glitch::after{
+    left:-2px;
+    text-shadow:-2px 0 blue;
+}
+
+/* Typing */
+.typing{
+    font-size:18px;
+    height:30px;
+    margin:15px 0;
+    border-right:2px solid #00ffff;
+    white-space:nowrap;
+    overflow:hidden;
+}
+
+/* Buttons */
+.btn{
+    display:block;
+    margin:12px 0;
+    padding:12px;
+    text-decoration:none;
+    border:1px solid #00ffff;
+    color:#00ffff;
+    border-radius:30px;
+    transition:0.4s;
+}
+
+.btn:hover{
+    background:#00ffff;
+    color:black;
+    box-shadow:0 0 25px #00ffff;
+}
+
+footer{
+    margin-top:20px;
+    font-size:13px;
+    opacity:0.8;
+}
+</style>
+</head>
+<body>
+
+<div class="stars"></div>
+<div class="snow"></div>
+
+<div class="card">
+
+    <img src="https://i.postimg.cc/zDTPjmfp/IMG-20260125-194020-964.jpg" class="profile">
+
+    <h1 class="glitch" data-text="SAN LYHAK">SAN LYHAK</h1>
+
+    <div class="typing" id="typing"></div>
+
+    <a href="https://t.me/TH3Cen_cee" target="_blank" class="btn">
+        Chat on Telegram
+    </a>
+
+    <a href="https://www.facebook.com/share/14ZJCZWDNwW/" target="_blank" class="btn">
+        Chat on Facebook
+    </a>
+
+    <footer>
+        Admin: Cencee
+    </footer>
+
+</div>
+
+<script>
+const text = "My Information";
+let i = 0;
+
+function typing(){
+    if(i < text.length){
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typing, 100);
+    }
+}
+typing();
+</script>
+
+</body>
+</html>
